@@ -1,0 +1,31 @@
+<mvc:View
+	controllerName="cardemployee.controller.View1"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:f="sap.f">
+	
+	<Panel id="panelForGridList" backgroundDesign="Transparent">
+	
+
+		<f:GridList
+			id="gridList"
+			headerText="Employee Info"
+			items="{/Employees}">
+			<f:GridListItem>
+				<VBox class="sapUiSmallMargin">
+					<layoutData>
+						<FlexItemData growFactor="1" shrinkFactor="0" /> <!-- Don't shrink below minimum size. Fill space if available. -->
+					</layoutData>
+
+					<Title text="{EmployeeID}" wrapping="true"  />
+					<Title text="{FirstName}" wrapping="true" />
+					<Title text="{LastName}" wrapping="true" />
+					<Label text="{path:'BirthDate', type: 'sap.ui.model.type.Date', formatOptions:{ UTC: true, pattern: 'dd/MM/yyyy'} }" wrapping="true" />
+					<Label text="{path:'HireDate', type: 'sap.ui.model.type.Date', formatOptions:{ UTC: true, pattern: 'dd/MM/yyyy'}}" wrapping="true" />
+					<Label text="{Country}" wrapping="true" />
+				</VBox>
+			</f:GridListItem>
+		</f:GridList>
+	</Panel>
+</mvc:View>
