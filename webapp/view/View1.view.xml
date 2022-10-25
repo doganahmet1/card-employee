@@ -17,8 +17,9 @@
 					<layoutData>
 						<FlexItemData growFactor="1" shrinkFactor="0" /> <!-- Don't shrink below minimum size. Fill space if available. -->
 					</layoutData>
-
+                    <Avatar src="{path:'Photo', formatter: '.convertImagePath'}" displayShape="Circle"></Avatar>
 					<Title text="{EmployeeID}" wrapping="true"  />
+					<Title text=" Title:{Title}" wrapping="true"  />
 					<Title text="{FirstName}" wrapping="true" />
 					<Title text="{LastName}" wrapping="true" />
 					<Label text="{path:'BirthDate', type: 'sap.ui.model.type.Date', formatOptions:{ UTC: true, pattern: 'dd/MM/yyyy'} }" wrapping="true" />

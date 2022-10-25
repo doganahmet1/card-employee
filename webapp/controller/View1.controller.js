@@ -10,6 +10,10 @@ sap.ui.define([
         return Controller.extend("cardemployee.controller.View1", {
             onInit: function () {
 
-            }
+            },
+            convertImagePath: function (imageData) {
+                var sTrimmedData = imageData.substr(104);
+                return "data:image/bmp;base64," + sTrimmedData;
+              },
         });
     });
