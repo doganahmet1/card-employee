@@ -1,47 +1,37 @@
-<mvc:View
-	controllerName="cardemployee.controller.View1"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:grid="sap.ui.layout.cssgrid"
-	xmlns:f="sap.f">
+<mvc:View controllerName="cardemployee.controller.View1"  xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" 	class="GridPropertiesSample"
+	xmlns:l="sap.ui.layout" xmlns:grid="sap.ui.layout.cssgrid" xmlns:f="sap.f">
+   
 	
-	<Panel id="panelForGridList" backgroundDesign="Transparent">
-	
-
-		<f:GridList
-			id="gridList"
-			headerText="Employee Info"
-			items="{/Employees}">
-			<f:GridListItem>
-			<f:content items="{/Employees}">
-		<f:Card
-			headerPosition="Top"
-		>
-			<f:content>
-
-					<VBox class="sapUiSmallMargin">
+        <f:GridList id="gridList" headerText="Employee Info"  items="{/Employees}" width="100%"  >
+			<f:customLayout>
+				<grid:GridResponsiveLayout layoutChange="onLayoutChange">
 				
-					
-					<VBox>
-				
-                    <Avatar src="{path:'Photo', formatter: '.convertImagePath'}" displayShape="Square"></Avatar>
-					<Text text=" {EmployeeID} {FirstName} {LastName}"/>
-					
-					</VBox>
-					
-					<Title text=" Title:{Title}" wrapping="true"  />
-					<Label text="BirthDate: {path:'BirthDate', type: 'sap.ui.model.type.Date', formatOptions:{ UTC: true, pattern: 'dd/MM/yyyy'} }" wrapping="true" />
-					<Label text="HireDate: {path:'HireDate', type: 'sap.ui.model.type.Date', formatOptions:{ UTC: true, pattern: 'dd/MM/yyyy'}}" wrapping="true" />
-					<Label text="{Country}" wrapping="true" />
-				</VBox>
-			</f:content>
-			<f:header>
-			</f:header>
-		</f:Card>
-				</f:content>
-			</f:GridListItem>
-		</f:GridList>
-	</Panel>
+					<grid:layoutXL>
+						<grid:GridSettings gridTemplateColumns="repeat(auto-fit, 17rem)" gridGap="1rem 1rem" />
+					</grid:layoutXL>
+				</grid:GridResponsiveLayout>
+			</f:customLayout>
+            <f:GridListItem  >
+                <f:content items="{/Employees}" >
+                    <f:Card headerPosition="Top" >
+                        <f:content class="sapUiTinyMarginBottom sapUiSmallMarginBegin" >
+                            <VBox class="sapUiSmallMarginBegin">
+                                <HBox>
+                                    <HBox>
+                                        <Avatar src="{path:'Photo', formatter: '.convertImagePath'}" displayShape="Square" />
+                                        <Text text=" {EmployeeID} {FirstName} {LastName} " />
+                                    </HBox>
+                                </HBox>
+                                <Title text=" Title:{Title}" wrapping="true" />
+                                <Label text="BirthDate: {path:'BirthDate', type: 'sap.ui.model.type.Date', formatOptions:{ UTC: true, pattern: 'dd/MM/yyyy'} }" wrapping="true" />
+                                <Label text="HireDate: {path:'HireDate', type: 'sap.ui.model.type.Date', formatOptions:{ UTC: true, pattern: 'dd/MM/yyyy'}}" wrapping="true" />
+                                <Label text="{Country}" wrapping="true" />
+                            </VBox>
+                        </f:content>
+                        <f:header />
+                    </f:Card>
+                </f:content>
+            </f:GridListItem>
+        </f:GridList>
+    
 </mvc:View>
-
-
